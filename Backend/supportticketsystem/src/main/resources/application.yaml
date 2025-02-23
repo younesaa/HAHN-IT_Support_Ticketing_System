@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: supportticketsystem
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+
+  jpa:
+    database-platform:
+      org.hibernate.dialect.OracleDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+admin:
+  username: ${ADMIN_USERNAME}
+  password: ${ADMIN_USERNAME_PASSWORD}
+jwt:
+  secretKey: ${JWT_SECRET_KEY}
+
+swagger:
+  url: ${SWAGGER_URL}
+

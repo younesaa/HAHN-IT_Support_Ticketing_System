@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  oracle-db:
+    image: container-registry.oracle.com/database/free:latest-lite
+    container_name: it-support-db
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+    environment:
+      ORACLE_PASSWORD: ${ORACLE_PASSWORD}
+      ORACLE_PDB: ${ORACLE_PDB}
+      ORACLE_APP_USER_PASSWORD: ${ORACLE_APP_USER_PASSWORD}
+      ORACLE_APP_USER: ${ORACLE_APP_USER}
+    volumes:
+      - ./init_scripts:/opt/oracle/scripts/startup
+      - db-data2:/opt/oracle/oradata
+    healthcheck:
+      test: ["CMD", "bash", "-c", "echo \"SELECT CASE WHEN status = 'OPEN' THEN 'READY' ELSE 'NOT READY' END FROM v\\$pdbs WHERE name = 'FREEPDB1';\" | sqlplus -s ${ORACLE_APP_USER}/${ORACLE_APP_USER_PASSWORD}@//localhost:1521/FREEPDB1 | grep -q 'READY'"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+    networks:
+      - shared-network
+
+volumes:
+  db-data2:
+
+networks:
+  shared-network:
+    external: true
