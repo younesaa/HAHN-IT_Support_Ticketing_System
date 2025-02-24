@@ -32,7 +32,6 @@ This setup facilitates a smooth local build without extra configurations.
 
 ### 3- Access API Documentation (Swagger UI)
 
-Ensure you are in the root directory (where the repository was cloned), then run:
 Once the application and services are running, access the Swagger API documentation here: http://localhost:8080/swagger-ui/index.html
 
 API Documentation Preview
@@ -41,6 +40,24 @@ API Documentation Preview
 ![DTOs](https://github.com/younesaa/HAHN-IT_Support_Ticketing_System/blob/main/swagger-preview2.JPG?raw=true)
 
 ### 4- Build and access app UI
+
+run:
+
+```bash
+cd ./Frontend
+java -jar it_support_swing_ui-1.0-SNAPSHOT 
+```
+UI Preview
+
+![Employe Dashboard](https://github.com/younesaa/HAHN-IT_Support_Ticketing_System/blob/main/swagger-ui_preview.JPG?raw=true)
+![Ticket Creation Dashboard](https://github.com/younesaa/HAHN-IT_Support_Ticketing_System/blob/main/swagger-ui_preview_1.JPG?raw=true)
+![Employee Ticket List Dashboard](https://github.com/younesaa/HAHN-IT_Support_Ticketing_System/blob/main/swagger-ui_preview_2.JPG?raw=true)
+
+Notes
+
+- Admin Dashboard Complete (add & delete users)
+- Employee Dashhboard Complete ( ticket creation & ticket listing with status filter )
+- Database: Oracle SQL ( pending implementation )
 
 Tech Stack
 

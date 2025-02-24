@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
 import jakarta.annotation.PostConstruct;
 
 @Component
@@ -29,9 +30,8 @@ public class JwtUtil {
 
     @PostConstruct
     public void init() {
-        String base64EncodedKey = Base64.getEncoder().encodeToString(secretKey.getBytes());
-        byte[] decodedKey = Base64.getDecoder().decode(base64EncodedKey);
-        this.SECRET_KEY = new SecretKeySpec(decodedKey, 0, decodedKey.length, "HmacSHA256");
+        byte[] decodedKey = Base64.getDecoder().decode(secretKey.getBytes());
+        this.SECRET_KEY = Keys.hmacShaKeyFor(decodedKey); // Cleaner key generation
     }
 
     public String generateToken(UserDetails userDetails) {
@@ -65,11 +65,7 @@ public class JwtUtil {
     }
 
     private <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
-        final Claims claims = Jwts.parser()
-                            .setSigningKey(SECRET_KEY)
-                            .build()
-                            .parseSignedClaims(token)
-                            .getPayload();
+        final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
     }
 

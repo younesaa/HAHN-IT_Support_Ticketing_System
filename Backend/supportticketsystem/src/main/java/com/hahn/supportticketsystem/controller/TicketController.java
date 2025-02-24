@@ -31,7 +31,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 public class TicketController {
     
     private final TicketService ticketService;
-    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
     
     @Autowired
     public TicketController(TicketService ticketService) {
@@ -42,6 +41,7 @@ public class TicketController {
     @PreAuthorize("hasAuthority('EMPLOYEE')")
     @Operation(summary = "Create a new ticket")
     public ResponseEntity<TicketResponseDTO> createTicket (@RequestBody TicketCreationDTO ticketCreationDTO) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String employeeName = authentication.getName();
         TicketResponseDTO ticketResponseDTO = ticketService.createTicket(ticketCreationDTO,employeeName);
         return new ResponseEntity<>(ticketResponseDTO, HttpStatus.CREATED);
@@ -51,6 +51,7 @@ public class TicketController {
     @PreAuthorize("hasAuthority('IT_SUPPORT') or hasAuthority('EMPLOYEE')")
     @Operation(summary = "get ticket by id")
     public ResponseEntity<TicketResponseDTO> getTicketById(@PathVariable Long ticketId) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String employeeName = authentication.getName();
         TicketResponseDTO ticketResponseDTO = ticketService.getTicketById(employeeName, ticketId);
         return new ResponseEntity<>(ticketResponseDTO, HttpStatus.OK);
@@ -60,6 +61,7 @@ public class TicketController {
     @PreAuthorize("hasAuthority('IT_SUPPORT') or hasAuthority('EMPLOYEE')")
     @Operation(summary = "get all tickets  | optional filter by status")
     public ResponseEntity<List<TicketResponseDTO>> getAllTickets(@RequestParam(required = false) String status) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String employeeName = authentication.getName();
         List<TicketResponseDTO> ticketsList = ticketService.getAllTicketsFiltred(employeeName, status);
         return new ResponseEntity<>(ticketsList, HttpStatus.OK);
@@ -69,6 +71,7 @@ public class TicketController {
     @PreAuthorize("hasAuthority('IT_SUPPORT')")
     @Operation(summary = "update ticket status")
     public ResponseEntity<TicketResponseDTO> updateTicketStatus(@PathVariable Long ticketId, @RequestParam(required = true) String status) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String employeeName = authentication.getName();
         TicketResponseDTO updatedTicket = ticketService.updateTicketStatus(employeeName, ticketId, status);
         return new ResponseEntity<>(updatedTicket, HttpStatus.OK);
@@ -78,6 +81,7 @@ public class TicketController {
     @PreAuthorize("hasAuthority('IT_SUPPORT')")
     @Operation(summary = "add ticket commment")
     public ResponseEntity<TicketResponseDTO> addCommentToTicket(@PathVariable Long ticketId, @RequestBody CommentCreationDTO commentCreationDTO) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String employeeName = authentication.getName();
         TicketResponseDTO updatedTicket = ticketService.createComment(employeeName, ticketId, commentCreationDTO);
         return new ResponseEntity<>(updatedTicket, HttpStatus.CREATED);

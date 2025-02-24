@@ -36,6 +36,8 @@ services:
       SPRING_DATASOURCE_PASSWORD: ${ORACLE_APP_USER_PASSWORD}
       ADMIN_USERNAME: ${ADMIN_USERNAME}
       ADMIN_USERNAME_PASSWORD: ${ADMIN_USERNAME_PASSWORD}
+      jwt.secretKey: ${JWT_SECRET_KEY}
+      swagger.url: ${SWAGGER_URL}
 
 volumes:
   it-support-system-data3:
