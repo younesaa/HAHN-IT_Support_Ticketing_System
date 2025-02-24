@@ -12,6 +12,14 @@ An IT support ticketing system that allows:
 
 Follow these steps to set up the project on your local machine:
 
+Please note that the app has configured with 
+- an admin user with credentials username=Admin and password=Admin123  ( for creating users)
+    username=Admin and password=Admin123
+- Employee & IT support users to make testing more easier with credentials ( for creation/viewing & managing/commenting/changing status tickets )
+    username=userEmployee1 and password=userEmployee1   
+    username=userEmployee2 and password=userEmployee2
+    username=userSupport1 and password=userSupport1  
+
 ### 1- Navigate to the Backend Directory and build with maven
 
 ```bash
