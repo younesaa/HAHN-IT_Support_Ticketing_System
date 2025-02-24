@@ -41,17 +41,16 @@ API Documentation Preview
 
 ### 4- Build and access app UI
 
-run:
+Ensure you are in the root directory (where the repository was cloned), then run:
 
 ```bash
-cd ./Frontend
 java -jar it_support_swing_ui-1.0-SNAPSHOT 
 ```
 UI Preview
 
-![Employe Dashboard](https://github.com/younesaa/HAHN-IT_Support_Ticketing_System/blob/main/swagger-ui_preview.JPG?raw=true)
-![Ticket Creation Dashboard](https://github.com/younesaa/HAHN-IT_Support_Ticketing_System/blob/main/swagger-ui_preview_1.JPG?raw=true)
-![Employee Ticket List Dashboard](https://github.com/younesaa/HAHN-IT_Support_Ticketing_System/blob/main/swagger-ui_preview_2.JPG?raw=true)
+![Employe Dashboard](https://github.com/younesaa/HAHN-IT_Support_Ticketing_System/blob/main/ui_preview.JPG?raw=true)
+![Ticket Creation Dashboard](https://github.com/younesaa/HAHN-IT_Support_Ticketing_System/blob/main/ui_preview_1.JPG?raw=true)
+![Employee Ticket List Dashboard](https://github.com/younesaa/HAHN-IT_Support_Ticketing_System/blob/main/ui_preview_2.JPG?raw=true)
 
 Notes
 
