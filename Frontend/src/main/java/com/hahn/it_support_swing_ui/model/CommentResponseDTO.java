@@ -10,6 +10,7 @@ import lombok.Setter;
 @Setter
 public class CommentResponseDTO {
 
+    private Long commentId;
     private String commentText;
     private String employeeName;
     private String commentDate;

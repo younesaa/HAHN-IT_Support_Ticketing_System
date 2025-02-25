@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import com.hahn.supportticketsystem.exception.TicketNotFoundException;
 import com.hahn.supportticketsystem.exception.UsernameAlreadyExistsException;
 import com.hahn.supportticketsystem.exception.UsernameNotFoundException;
 
@@ -18,6 +19,11 @@ public class GlobalExceptionHanlder {
 
     @ExceptionHandler(UsernameNotFoundException.class)
     public ResponseEntity<String> handleUsernameNotFoundException(UsernameNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);    
+    }
+
+    @ExceptionHandler(TicketNotFoundException.class)
+    public ResponseEntity<String> handleTicketNotFoundException(TicketNotFoundException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);    
     }
 

@@ -108,7 +108,6 @@ public class TicketService {
         for (Ticket ticket : tickets) {
             List<CommentResponseDTO> comment2List = new ArrayList<>();
             TicketResponseDTO ticketResponseDTO = TicketResponseMapper.INSTANCE.toDTO(ticket);
-            ticketResponseDTO.setEmployeeName(employeeName);
             for(Comment comment2: ticket.getComments()){
                 CommentResponseDTO commentResponseDTO2 = CommentResponseMapper.INSTANCE.toDTO(comment2);
                 commentResponseDTO2.setEmployeeName(comment2.getEmployee().getUsername());

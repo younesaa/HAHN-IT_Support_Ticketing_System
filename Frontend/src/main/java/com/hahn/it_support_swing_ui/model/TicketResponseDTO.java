@@ -10,6 +10,7 @@ import lombok.Setter;
 @Setter
 public class TicketResponseDTO {
 
+    private Long ticketId;
     private String title;
     private String description;
     private String priority;

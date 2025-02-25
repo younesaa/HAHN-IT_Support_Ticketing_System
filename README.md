@@ -52,19 +52,21 @@ API Documentation Preview
 Ensure you are in the root directory (where the repository was cloned), then run:
 
 ```bash
-java -jar it_support_swing_ui-1.0-SNAPSHOT 
+java -jar it_support_swing_ui-1.0-SNAPSHOT.java 
 ```
 UI Preview
 
 ![Employe Dashboard](https://github.com/younesaa/HAHN-IT_Support_Ticketing_System/blob/main/ui_preview.JPG?raw=true)
 ![Ticket Creation Dashboard](https://github.com/younesaa/HAHN-IT_Support_Ticketing_System/blob/main/ui_preview_1.JPG?raw=true)
 ![Employee Ticket List Dashboard](https://github.com/younesaa/HAHN-IT_Support_Ticketing_System/blob/main/ui_preview_2.JPG?raw=true)
+![Tickets View Dashboard](https://github.com/younesaa/HAHN-IT_Support_Ticketing_System/blob/main/support_preview_1.JPG?raw=true)
+![Audit Logs Dashboard](https://github.com/younesaa/HAHN-IT_Support_Ticketing_System/blob/main/support_preview_2.JPG?raw=true)
 
 Notes
 
 - Admin Dashboard Complete (add & delete users)
 - Employee Dashhboard Complete ( ticket creation & ticket listing with status filter )
-- Database: Oracle SQL ( pending implementation )
+- Support IT Dashhboard Complete ( ticket status Update and Comments & Aufit Log Actions listing )
 
 Tech Stack
 
