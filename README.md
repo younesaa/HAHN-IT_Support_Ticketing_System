@@ -29,7 +29,7 @@ mvn clean package  # or ./mvnw clean package for windows
 ```
 ### 2- Navigate to the root project Directory
 
-Ensure you are in the root directory (where the repository was cloned), then run:
+Ensure you are in the root directory (where the repository was cloned), for that run:
 
 ```bash
 cd ../..
